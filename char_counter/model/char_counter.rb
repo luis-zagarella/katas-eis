@@ -1,0 +1,3 @@
+class CharCounter
+
+end
