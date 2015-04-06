@@ -3,10 +3,10 @@ require_relative '../model/char_counter.rb'
 
 describe 'CharCounter' do
   
-  it 'should return {a=>1} when string is a' do
-    dic = CharCounter.count('a')
-    dic['a'].should be 1
-  end
+#  it 'should return {a=>1} when string is a' do
+#    dic = CharCounter.count('a')
+#    dic['a'].should be 1
+#  end
 
 #  it 'should return {b=>nil} when string is a' do
 #    dic = CharCounter.count('a')
@@ -30,14 +30,14 @@ describe 'CharCounter' do
 #    dic.size.should be 4
 #  end
 
-#  it 'should return {} when string is empty' do
-#    dic = CharCounter.count('')
-#    dic.size.should be 0
-#  end    
+  it 'should return {} when string is empty' do
+    dic = CharCounter.count('')
+    dic.size.should be 0
+  end    
 
-#  it 'should return {} when string is nil' do
-#    dic = CharCounter.count(nil)
-#    dic.size.should be 0
-#  end    
+  it 'should return {} when string is nil' do
+    dic = CharCounter.count(nil)
+    dic.size.should be 0
+  end    
 
 end
