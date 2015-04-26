@@ -1,0 +1,3 @@
+class Marcador
+
+end
