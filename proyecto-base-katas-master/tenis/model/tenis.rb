@@ -1,5 +1,0 @@
-class Tenis
-
-
-end
-
