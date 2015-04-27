@@ -20,14 +20,22 @@ class Marcador
 
 	def ganar_game(un_jugador)
 		puntaje_puntos = [0,0]
-		if (un_jugador == 1)
-			gana_el_game(1)						
-		else
-			gana_el_game(2)
-		end
+		gana_el_game(un_jugador)						
 	end
 
 	def gana_el_game(un_jugador)
-	
+		
 	end
+
+	def ganar_set(un_jugador)
+		puntaje_games = [0,0]
+		ganar_el_set(un_jugador)
+	end
+	
+	def ganar_el_set(un_jugador)
+		ganar_game(un_jugador)
+	end	
 end
+
+
+
