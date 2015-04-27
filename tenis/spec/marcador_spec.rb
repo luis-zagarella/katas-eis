@@ -39,6 +39,13 @@ describe 'Marcador' do
 		marcador.puntaje_games.should eq [1,0]
 	end
 
+	it 'cuando un jugador obtiene la ventaja en el game debe quedar con la A' do
+		marcador = Marcador.new
+		marcador.set_puntaje_puntos([40,40])
+		marcador.ganar_punto(1)
+		marcador.puntaje_puntos.should eq ['A',40]
+	end
+
   end
 
   describe 'ganar_game' do

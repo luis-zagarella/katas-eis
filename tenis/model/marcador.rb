@@ -42,12 +42,37 @@ class Marcador
 	def ganar_punto(un_jugador)
 		punto_que_sigue = siguiente_punto(puntaje_puntos.at(un_jugador - 1))
 		if(punto_que_sigue == 0)
-			ganar_game(un_jugador)		
+			chequear_ventajas(un_jugador)
 		elsif(un_jugador == 1)
 			set_puntaje_puntos([punto_que_sigue, puntaje_puntos.at(1)])
 		elsif(un_jugador == 2)
 			set_puntaje_puntos([puntaje_puntos.at(0), punto_que_sigue])
 		end		
+	end
+
+	def chequear_ventajas(un_jugador)
+		otro_jugador_puntaje = puntaje_puntos.at(rival(un_jugador)-1)
+		if(otro_jugador_puntaje == 40)
+			dar_ventaja(un_jugador)
+		else
+			ganar_game(un_jugador)	
+		end
+	end
+
+	def rival(un_jugador)
+		res = 1
+		if(un_jugador == 1)
+			res = 2
+		end
+		res
+	end
+
+	def dar_ventaja(un_jugador)
+		if(un_jugador == 1)
+			set_puntaje_puntos(['A', puntaje_puntos.at(1)])
+		else
+			set_puntaje_puntos([puntaje_puntos.at(0), 'A'])
+		end
 	end
 
 	def siguiente_punto(un_puntaje)
