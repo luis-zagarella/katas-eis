@@ -1,0 +1,9 @@
+class Marcador
+
+	def initialize
+		@puntaje_puntos = [0,0]
+		@puntaje_games = [0,0]
+		@puntaje_sets = [0,0]
+	end
+
+end
