@@ -71,6 +71,13 @@ describe 'Marcador' do
 		marcador.ganador.should eq "el jugador 1 gano el encuentro"
 	end
 
+	it 'el partido termina cuando algunos de los jugadores alcance los 2 sets - case: gana jugador 2 el partido' do
+		marcador = Marcador.new
+		marcador.ganar_set(2)
+		marcador.ganar_set(2)
+		marcador.ganador.should eq "el jugador 2 gano el encuentro"
+	end
+
   end
 
 end
