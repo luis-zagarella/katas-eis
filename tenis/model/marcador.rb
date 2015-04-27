@@ -40,27 +40,30 @@ class Marcador
 	end
 
 	def ganar_punto(un_jugador)
-		if(un_jugador == 1)
-			set_puntaje_puntos([siguiente_punto(puntaje_puntos.at(0)), puntaje_puntos.at(1)])
-		else
-			set_puntaje_puntos([puntaje_puntos.at(0), siguiente_punto(puntaje_puntos.at(1))])
+		punto_que_sigue = siguiente_punto(puntaje_puntos.at(un_jugador - 1))
+		if(punto_que_sigue == 0)
+			ganar_game(un_jugador)		
+		elsif(un_jugador == 1)
+			set_puntaje_puntos([punto_que_sigue, puntaje_puntos.at(1)])
+		elsif(un_jugador == 2)
+			set_puntaje_puntos([puntaje_puntos.at(0), punto_que_sigue])
 		end		
 	end
 
 	def siguiente_punto(un_puntaje)
-		puntaje_resultado = un_puntaje		
+		puntaje_resultado = 0		
 		if(un_puntaje == 0)
 			puntaje_resultado = 15
 		elsif(un_puntaje == 15)
 			puntaje_resultado = 30
 		elsif(un_puntaje == 30)
-			puntaje_resultado = 40
+			puntaje_resultado = 40	
 		end
 		puntaje_resultado
 	end
 
 	def ganar_game(un_jugador)
-		puntaje_puntos = [0,0]
+		set_puntaje_puntos([0,0])
 		gana_el_game(un_jugador)						
 	end
 

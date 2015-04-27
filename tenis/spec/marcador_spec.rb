@@ -29,12 +29,14 @@ describe 'Marcador' do
 		marcador.puntaje_puntos.should eq [30,0]
 	end
 	
-	it 'cuando un jugador mete el tercer punto del game suma 40' do
+	it 'cuando un jugador mete el cuarto punto del game si el otro no suma 40 o ventaja lo gana' do
 		marcador = Marcador.new
 		marcador.ganar_punto(1)
 		marcador.ganar_punto(1)
 		marcador.ganar_punto(1)
-		marcador.puntaje_puntos.should eq [40,0]
+		marcador.ganar_punto(1)
+		marcador.puntaje_puntos.should eq [0,0]
+		marcador.puntaje_games.should eq [1,0]
 	end
 
   end
