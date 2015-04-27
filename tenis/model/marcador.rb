@@ -37,6 +37,11 @@ class Marcador
 			if(puntaje_games.at(0) == 6)
 				ganar_set(1)
 			end
+		else
+			set_puntaje_games([puntaje_games.at(0), puntaje_games.at(1) + 1])
+			if(puntaje_games.at(1) == 6)
+				ganar_set(2)
+			end		
 		end
 	end
 
@@ -48,6 +53,8 @@ class Marcador
 	def gana_el_set(un_jugador)
 		if(un_jugador ==  1)
 			set_puntaje_sets([puntaje_sets.at(0) + 1,puntaje_sets.at(1)])
+		else
+			set_puntaje_sets([puntaje_sets.at(0),puntaje_sets.at(1) + 1])
 		end
 	end	
 end

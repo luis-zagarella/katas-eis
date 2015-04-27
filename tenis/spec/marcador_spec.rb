@@ -53,6 +53,13 @@ describe 'Marcador' do
 		marcador.puntaje_sets.should eq [1,0]				
 	end
 
+	it 'cuando un jugador alcance los 6 games gana el set - case: gana jugador 2 el set' do
+		marcador = Marcador.new
+		marcador.set_puntaje_games([0,5])
+		marcador.ganar_game(2)
+		marcador.puntaje_sets.should eq [0,1]				
+	end
+
   end
 
 end
