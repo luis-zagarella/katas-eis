@@ -38,6 +38,13 @@ describe 'Marcador' do
 		marcador.puntaje_puntos.should eq [0,0]
                 marcador.puntaje_games.should eq [0,0]
 	end
+	
+	it 'cuando un jugador gana un set, los games vuelven a 0-0 y lo mismo ocurre con los puntos - case: gana jugador 2 el set' do
+		marcador = Marcador.new
+		marcador.ganar_set(2)
+		marcador.puntaje_puntos.should eq [0,0]
+                marcador.puntaje_games.should eq [0,0]
+	end
   
   end
 
