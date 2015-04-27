@@ -53,8 +53,10 @@ class Marcador
 			puntaje_resultado = 15
 		elsif(un_puntaje == 15)
 			puntaje_resultado = 30
+		elsif(un_puntaje == 30)
+			puntaje_resultado = 40
 		end
-		return puntaje_resultado
+		puntaje_resultado
 	end
 
 	def ganar_game(un_jugador)
