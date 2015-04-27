@@ -10,6 +10,7 @@ describe 'Marcador' do
 		marcador.puntaje_puntos.should eq [0,0]
  		marcador.puntaje_games.should eq [0,0]
 		marcador.puntaje_sets.should eq [0,0]
+		marcador.ganador.should eq 'partido en curso'
 	end	
  
   end
@@ -117,6 +118,26 @@ describe 'Marcador' do
 		marcador.ganar_set(2)
 		marcador.ganar_set(2)
 		marcador.ganador.should eq "el jugador 2 gano el encuentro"
+	end
+
+	it 'se ganan sets pero el partido sigue en curso' do
+		marcador = Marcador.new
+		marcador.ganar_set(1)
+		marcador.ganar_set(2)
+		marcador.puntaje_puntos.should eq [0,0]
+ 		marcador.puntaje_games.should eq [0,0]
+		marcador.puntaje_sets.should eq [1,1]
+		marcador.ganador.should eq 'partido en curso'
+	end
+
+  end
+
+  describe 'test_complementarios' do
+
+	it 'el rival del jugador1 debe ser el jugador2 y viceversa' do
+		marcador = Marcador.new
+		marcador.rival(1).should eq 2
+		marcador.rival(2).should eq 1
 	end
 
   end
