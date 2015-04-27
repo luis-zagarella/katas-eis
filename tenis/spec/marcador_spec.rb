@@ -21,6 +21,13 @@ describe 'Marcador' do
 		marcador.ganar_punto(1)
 		marcador.puntaje_puntos.should eq [15,0]
 	end
+	
+	it 'cuando un jugador mete el segundo punto del game suma 30' do
+		marcador = Marcador.new
+		marcador.ganar_punto(1)
+		marcador.ganar_punto(1)
+		marcador.puntaje_puntos.should eq [30,0]
+	end
 
   end
 

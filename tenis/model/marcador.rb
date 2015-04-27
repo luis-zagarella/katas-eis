@@ -51,6 +51,8 @@ class Marcador
 		puntaje_resultado = un_puntaje		
 		if(un_puntaje == 0)
 			puntaje_resultado = 15
+		elsif(un_puntaje == 15)
+			puntaje_resultado = 30
 		end
 		return puntaje_resultado
 	end
