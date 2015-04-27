@@ -22,6 +22,11 @@ describe 'Marcador' do
 		marcador.puntaje_puntos.should eq [0,0]
 	end
      
+	it 'cuando un jugador gana un game, los puntos vuelven a 0-0 - case: gana jugador 2 el game' do
+		marcador = Marcador.new	
+		marcador.ganar_game(2)
+		marcador.puntaje_puntos.should eq [0,0]
+	end
   end
 
 end
