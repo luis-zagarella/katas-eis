@@ -4,8 +4,17 @@ class Marcador
 		@puntaje_puntos = [0,0]
 		@puntaje_games = [0,0]
 		@puntaje_sets = [0,0]
+		@ganador = "partido en curso"
 	end
 
+	def ganador
+		@ganador
+	end
+
+	def set_ganador(un_jugador)
+		@ganador = "el jugador #{un_jugador} gano el encuentro"
+	end
+		
 	def puntaje_puntos 
 		@puntaje_puntos	
 	end
@@ -56,7 +65,19 @@ class Marcador
 		else
 			set_puntaje_sets([puntaje_sets.at(0),puntaje_sets.at(1) + 1])
 		end
+		chequear_si_gano_el_partido(un_jugador)
 	end	
+
+	def chequear_si_gano_el_partido(un_jugador)
+		if(puntaje_sets.at(un_jugador - 1) == 2)
+			ganar_partido(un_jugador)		
+		end
+	end
+
+	def ganar_partido(un_jugador)
+		set_ganador(un_jugador)
+	end
+
 end
 
 
