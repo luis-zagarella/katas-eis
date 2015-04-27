@@ -14,6 +14,16 @@ describe 'Marcador' do
  
   end
 
+  describe 'ganar_punto' do
+  	
+	it 'cuando un jugador mete el primer punto del game suma 15' do
+		marcador = Marcador.new
+		marcador.ganar_punto(1)
+		marcador.puntaje_puntos.should eq [15,0]
+	end
+
+  end
+
   describe 'ganar_game' do
  
 	it 'cuando un jugador gana un game, los puntos vuelven a 0-0 - case: gana jugador 1 el game' do

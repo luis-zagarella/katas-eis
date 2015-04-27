@@ -18,6 +18,10 @@ class Marcador
 	def puntaje_puntos 
 		@puntaje_puntos	
 	end
+
+	def set_puntaje_puntos(un_puntaje)
+		@puntaje_puntos = un_puntaje
+	end
  	
 	def puntaje_games
 		@puntaje_games 
@@ -33,6 +37,22 @@ class Marcador
 
 	def set_puntaje_sets(un_puntaje)
 		@puntaje_sets = un_puntaje
+	end
+
+	def ganar_punto(un_jugador)
+		if(un_jugador == 1)
+			set_puntaje_puntos([siguiente_punto(puntaje_puntos.at(0)), puntaje_puntos.at(1)])
+		else
+			set_puntaje_puntos([puntaje_puntos.at(0), siguiente_punto(puntaje_puntos.at(1))])
+		end		
+	end
+
+	def siguiente_punto(un_puntaje)
+		puntaje_resultado = un_puntaje		
+		if(un_puntaje == 0)
+			puntaje_resultado = 15
+		end
+		return puntaje_resultado
 	end
 
 	def ganar_game(un_jugador)
