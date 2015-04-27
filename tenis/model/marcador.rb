@@ -54,6 +54,8 @@ class Marcador
 		otro_jugador_puntaje = puntaje_puntos.at(rival(un_jugador)-1)
 		if(otro_jugador_puntaje == 40)
 			dar_ventaja(un_jugador)
+		elsif(otro_jugador_puntaje == 'A')
+			set_puntaje_puntos([40,40])
 		else
 			ganar_game(un_jugador)	
 		end
