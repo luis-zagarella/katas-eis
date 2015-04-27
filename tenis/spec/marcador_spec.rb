@@ -132,12 +132,21 @@ describe 'Marcador' do
 
   end
 
-  describe 'test_complementarios' do
+  describe 'tests_complementarios' do
 
 	it 'el rival del jugador1 debe ser el jugador2 y viceversa' do
 		marcador = Marcador.new
 		marcador.rival(1).should eq 2
 		marcador.rival(2).should eq 1
+	end
+
+	it 'testeo el metodo siguiente_punto' do
+		marcador = Marcador.new
+		marcador.siguiente_punto(0).should eq 15    # pruebo con 0
+		marcador.siguiente_punto(15).should eq 30   # con 15
+		marcador.siguiente_punto(30).should eq 40   # con 30
+		marcador.siguiente_punto(40).should eq 0    # con 40
+		marcador.siguiente_punto(89).should eq 0    # con un numero cualquiera
 	end
 
   end

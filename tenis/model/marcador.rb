@@ -96,16 +96,17 @@ class Marcador
 
 	def gana_el_game(un_jugador)
 		if(un_jugador ==  1)
-			set_puntaje_games([puntaje_games.at(0) + 1,puntaje_games.at(1)])
-			if(puntaje_games.at(0) == 6)
-				ganar_set(1)
-			end
+			set_puntaje_games([puntaje_games.at(0) + 1, puntaje_games.at(1)])
 		else
-			set_puntaje_games([puntaje_games.at(0), puntaje_games.at(1) + 1])
-			if(puntaje_games.at(1) == 6)
-				ganar_set(2)
-			end		
+			set_puntaje_games([puntaje_games.at(0), puntaje_games.at(1) + 1])		
 		end
+		chequear_si_gano_el_set(un_jugador)
+	end
+
+	def chequear_si_gano_el_set(un_jugador)
+		if(puntaje_games.at(un_jugador - 1) == 6)
+				ganar_set(un_jugador)
+		end		
 	end
 
 	def ganar_set(un_jugador)
