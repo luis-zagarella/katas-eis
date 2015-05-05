@@ -33,6 +33,12 @@ describe 'Battleship' do
 	  expect(neighbor.y).to eq 4
 	end
 	
+	it 'should return its neighbor at south' do
+	  neighbor = @point.next_at('South')
+	  expect(neighbor.x).to eq 3
+	  expect(neighbor.y).to eq 2
+	end
+
   end
 
 
