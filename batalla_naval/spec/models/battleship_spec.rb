@@ -16,8 +16,8 @@ describe 'Battleship' do
   	end
 
   	it 'should create a 5x5 Board' do
-    	  expect(@board.size[0]).to eq 5
-    	  expect(@board.size[1]).to eq 5
+    	  expect(@board.width).to eq 5
+    	  expect(@board.long).to eq 5
   	end
   
   end
@@ -55,6 +55,21 @@ describe 'Battleship' do
           expect(large.occupied_points[0].is_equal(@origin)).to eq true
 	  expect(large.occupied_points[1].is_equal(neighbor1)).to eq true
 	  expect(large.occupied_points[2].is_equal(neighbor2)).to eq true
+	end
+
+  end
+
+  describe 'Adding ships to fleet' do
+	
+	before (:each) do
+    	  @board = Board.new 5,5
+	  @origin = Point.new 3,3
+	end	 
+	
+	it 'should add a small ship in origin' do
+          @board.add_a_ship_to_fleet('small', @origin, 'North')
+	  expect(@board.ships.size).to eq 1
+          expect(@board.is_empty(@origin)).to eq false
 	end
 
   end

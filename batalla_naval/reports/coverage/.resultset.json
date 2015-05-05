@@ -2,20 +2,62 @@
   "RSpec": {
     "coverage": {
     },
-    "timestamp": 1430826304
+    "timestamp": 1430865450
   },
   "Cucumber Features": {
     "coverage": {
       "/home/luis/batalla_naval/app/models/board.rb": [
         1,
+        null,
         1,
         1,
         1,
+        1,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        null,
+        1,
+        0,
+        null,
+        null,
+        1,
+        0,
         null,
         null,
         null
       ]
     },
-    "timestamp": 1430826305
+    "timestamp": 1430865452
   }
 }
