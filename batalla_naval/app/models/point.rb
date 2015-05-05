@@ -21,6 +21,10 @@ class Point
 	@x = a_x
   end
 
+  def is_equal(another_point)
+	(self.x == another_point.x) && (self.y == another_point.y)	
+  end
+
   def next_at(a_direction)
 	res = Point.new(x, y)  
 	if(a_direction == "North")
