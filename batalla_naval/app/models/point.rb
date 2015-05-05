@@ -29,6 +29,8 @@ class Point
 		res.set_y(res.y() - 1)
 	elsif(a_direction == "East")
 		res.set_x(res.x() + 1)
+	elsif(a_direction == "West")
+		res.set_x(res.x() - 1)
 	end
 	res
   end
