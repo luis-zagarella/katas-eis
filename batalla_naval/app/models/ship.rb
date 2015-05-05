@@ -28,6 +28,8 @@ class Ship
 		res = 1
 	elsif(a_size == "medium")
 		res = 2	
+	elsif(a_size == "large")
+		res = 3	
 	end
 	res
   end

@@ -45,6 +45,18 @@ describe 'Battleship' do
 	  expect(medium.occupied_points[1].is_equal(neighbor)).to eq true
 	end
 
+	it 'should create a large ship in origin' do
+	  large = Ship.new 'large', @origin, 'North'
+	  neighbor1 = @origin.next_at('North')
+	  neighbor2 = neighbor1.next_at('North') 
+	  expect(large.size).to eq 3
+          expect(large.direction).to eq 'North'
+	  expect(large.occupied_points.size).to eq 3
+          expect(large.occupied_points[0].is_equal(@origin)).to eq true
+	  expect(large.occupied_points[1].is_equal(neighbor1)).to eq true
+	  expect(large.occupied_points[2].is_equal(neighbor2)).to eq true
+	end
+
   end
 
   describe 'Point class logic' do
