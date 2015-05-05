@@ -15,9 +15,30 @@ Given(/^I create a small ship in position "(.*?)"$/) do |point|
 end
 
 Then(/^position "(.*?)" is not empty$/) do |point|
-   b = point.split(":")
-   	x1= b[0].to_i
-   	y1= b[1].to_i
-   @my_point = Point.new(x1,y1) 
+   a = point.split(":")
+   x= a[0].to_i
+   y= a[1].to_i
+   @my_point = Point.new(x,y) 
    expect(@board.is_empty(@my_point)).to eq false
 end
+
+Given(/^I create a large ship in position "(.*?)"$/) do |point|
+  a = point.split(":")
+  x= a[0].to_i
+  y= a[1].to_i
+  @origin = Point.new(x,y)
+  @board.add_a_ship_to_fleet('large', @origin,'North')
+end
+
+Then(/^position "(.*?)" and two more positions are not empty$/) do |point|
+   a = point.split(":")
+   x= a[0].to_i
+   y= a[1].to_i
+   @my_point = Point.new(x,y) 
+   @neighbor1 = @my_point.next_at('North')
+   @neighbor2 = @neighbor1.next_at('North')
+   expect(@board.is_empty(@my_point)).to eq false
+   expect(@board.is_empty(@neighbor1)).to eq false
+   expect(@board.is_empty(@neighbor2)).to eq false
+end
+
