@@ -80,7 +80,7 @@ describe 'Battleship' do
 	end
 
 	it 'should add a large ship in origin' do
-	  neighbor1 = @origin.next_at('Norht')
+	  neigbbor1 = @origin.next_at('Norht')
           neighbor2 = neighbor1.next_at('Norht')
           @board.add_a_ship_to_fleet('large', @origin, 'North')
 	  expect(@board.ships.size).to eq 1
