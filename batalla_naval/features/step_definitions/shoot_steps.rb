@@ -23,3 +23,7 @@ Then(/^I get sink$/) do
   expect(@response).to eq 'sink'
 end
 
+Then(/^it should raise error "(.*?)"$/) do |error|
+  pending # express 
+end
+

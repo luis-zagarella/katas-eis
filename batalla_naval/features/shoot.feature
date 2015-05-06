@@ -1,6 +1,6 @@
 Feature: Shoot 
 
-
+@wip
   Background:
     Given a board with dimensions "5" x "5"
     And a medium ship in position: “3:3”
@@ -18,4 +18,9 @@ Feature: Shoot
     Then I get hit
     And I shoot to position “3:3”
     Then I get sink
+
+  Scenario: Shoot outside of board
+    When I shoot to position “5:5”
+    Then it should raise error "Shoot out of board!"
+
 

@@ -47,9 +47,11 @@ class Board
   end
 
   def shoot(a_point)
-  	msj = 'shoot out of range'
+  	msj = ' '
 	if(a_point.is_in_range(width, long))
 		msj = make_shoot(a_point)
+	else
+		raise 'Shoot out of board!'
 	end
 	msj
   end
