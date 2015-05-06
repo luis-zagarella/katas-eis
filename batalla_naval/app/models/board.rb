@@ -24,9 +24,8 @@ class Board
 
   def add_a_ship_to_fleet(a_size, a_origin, a_direction)
 	new_ship = Ship.new(a_size, a_origin, a_direction)
-	if(is_valid(new_ship))
-		add_ship(new_ship)
-	end
+	new_ship.check_is_out_of_board(width, long)
+	add_ship(new_ship)
   end
 
   def add_ship(a_ship)
@@ -36,10 +35,6 @@ class Board
         else
 		set_ships(res)
 	end
-  end
-
-  def is_valid(a_ship)
-	true
   end
 
   def is_empty(a_point)

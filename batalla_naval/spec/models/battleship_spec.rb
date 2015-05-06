@@ -67,6 +67,8 @@ describe 'Battleship' do
 	before (:each) do
     	  @board = Board.new 5,5
 	  @origin = Point.new 3,3
+	  @edge = Point.new 4,4
+          @large_point = Point.new 1,1
 	end	 
 	
 	it 'should add a small ship in origin' do
@@ -82,14 +84,18 @@ describe 'Battleship' do
           expect(@board.is_empty(@origin.next_at('Norht'))).to eq false
 	end
 
-	it 'should add a large ship in origin' do
-	  neighbor1 = @origin.next_at('Norht')
+	it 'should add a large ship in large_point' do
+	  neighbor1 = @large_point.next_at('Norht')
           neighbor2 = neighbor1.next_at('Norht')
-          @board.add_a_ship_to_fleet('large', @origin, 'North')
+          @board.add_a_ship_to_fleet('large', @large_point, 'North')
 	  expect(@board.ships.size).to eq 1
-          expect(@board.is_empty(@origin)).to eq false
+          expect(@board.is_empty(@large_point)).to eq false
           expect(@board.is_empty(neighbor1)).to eq false
           expect(@board.is_empty(neighbor2)).to eq false
+	end
+
+	it 'should raise an error because ship is out of board' do
+	  expect { @board.add_a_ship_to_fleet('medium', @edge, 'North') }.to raise_error("Ship is out of board!")
 	end
 
   end

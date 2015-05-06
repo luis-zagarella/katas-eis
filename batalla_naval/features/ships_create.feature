@@ -1,5 +1,6 @@
 Feature: Ships create
 
+@wip
   Background:
     Given a board with dimensions "5" x "5"
 
@@ -18,4 +19,8 @@ Feature: Ships create
      When I create a medium ship in position "2:2"
      Then position "2:2" and one more position are not empty
      And position "2:3" is not empty
+
+   Scenario: Create a medium ship in a invalid location
+     When I create a medium ship in position "4:4"
+     Then it should raise error "Ship is out of board!"
     

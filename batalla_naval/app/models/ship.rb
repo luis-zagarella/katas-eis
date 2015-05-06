@@ -68,4 +68,11 @@ class Ship
 		set_state('sink')
 	end
   end
+
+  def check_is_out_of_board(a_width, a_long)
+  	if(occupied_points.any? { |point| !point.is_in_range(a_width, a_long) })
+		raise 'Ship is out of board!'
+	end
+  end
+
 end
