@@ -67,6 +67,7 @@ describe 'Battleship' do
 	before (:each) do
     	  @board = Board.new 5,5
 	  @origin = Point.new 3,3
+          @south_origin = Point.new 3,2
 	  @edge = Point.new 4,4
           @large_point = Point.new 1,1
 	end	 
@@ -96,6 +97,11 @@ describe 'Battleship' do
 
 	it 'should raise an error because ship is out of board' do
 	  expect { @board.add_a_ship_to_fleet('medium', @edge, 'North') }.to raise_error("Ship is out of board!")
+	end
+
+        it 'should raise an error because another ship is in the area' do
+	  @board.add_a_ship_to_fleet('small', @origin, 'North')
+	  expect { @board.add_a_ship_to_fleet('medium', @south_origin, 'North') }.to raise_error("Another ship is in this area!")
 	end
 
   end
