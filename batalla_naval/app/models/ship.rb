@@ -4,10 +4,19 @@ class Ship
     	@size = calculate_size(a_size)
 	@direction = a_direction
     	@occupied_points = generate_occupied_points(calculate_size(a_size), a_origin, a_direction)
+        @state = 'without damage'
   end
 
   def size 
 	@size
+  end
+
+  def state 
+	@state
+  end
+
+  def set_state(a_state)
+	@state = a_state
   end
 
   def direction
@@ -48,4 +57,15 @@ class Ship
 	occupied_points.any? { |point| point.is_equal(a_point) } 
   end
 
+  def get_hit(a_point)
+	occupied_points.reject! { |point| point.is_equal(a_point) }
+	set_state('damage') 
+	check_if_is_sink()
+  end
+
+  def check_if_is_sink
+	if(occupied_points.size == 0)
+		set_state('sink')
+	end
+  end
 end

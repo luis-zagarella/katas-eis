@@ -30,6 +30,7 @@ describe 'Battleship' do
 	
 	it 'should create a small ship in origin' do
 	  small = Ship.new 'small', @origin, 'North'
+	  expect(small.state).to eq 'without damage'
 	  expect(small.size).to eq 1
           expect(small.direction).to eq 'North'
           expect(small.occupied_points).to eq [@origin]
@@ -38,6 +39,7 @@ describe 'Battleship' do
 	it 'should create a medium ship in origin' do
 	  medium = Ship.new 'medium', @origin, 'North'
 	  neighbor = @origin.next_at('North')
+	  expect(medium.state).to eq 'without damage'
 	  expect(medium.size).to eq 2
           expect(medium.direction).to eq 'North'
 	  expect(medium.occupied_points.size).to eq 2
@@ -49,6 +51,7 @@ describe 'Battleship' do
 	  large = Ship.new 'large', @origin, 'North'
 	  neighbor1 = @origin.next_at('North')
 	  neighbor2 = neighbor1.next_at('North') 
+	  expect(large.state).to eq 'without damage'
 	  expect(large.size).to eq 3
           expect(large.direction).to eq 'North'
 	  expect(large.occupied_points.size).to eq 3
@@ -146,6 +149,15 @@ describe 'Battleship' do
 	it 'should make a shoot and miss' do
 	  msj = @board.shoot(@miss)
 	  expect(msj).to eq 'water'
+	  expect(@board.ships[0].occupied_points.size).to eq 2
+          expect(@board.ships[0].state).to eq 'without damage'
+        end
+
+	it 'should make a shoot and hit' do
+	  msj = @board.shoot(@origin)
+	  expect(msj).to eq 'hit'
+	  expect(@board.ships[0].occupied_points.size).to eq 1
+          expect(@board.ships[0].state).to eq 'damage'
         end
 
   end

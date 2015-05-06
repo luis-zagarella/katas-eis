@@ -63,6 +63,22 @@ class Board
   end
  
   def make_damage(a_point)
+  	msj = 'hit'
+	ship = ship_at(a_point)
+	ship.get_hit(a_point)
+	if(ship.state() == 'sink')
+		remove_to_the_fleet(ship)
+		msj = 'sink'
+	end
+	msj	
+  end
+
+  def ship_at(a_point)
+	index = ships.find_index { |ship| ship.a_point_belongs_to_ship(a_point) }
+	ships[index]
+  end
+
+  def remove_to_the_fleet(a_ship)
 
   end
 
