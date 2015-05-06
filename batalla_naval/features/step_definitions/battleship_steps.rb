@@ -11,7 +11,10 @@ When(/^I create a small ship in position "(.*?)"$/) do |point|
   x= a[0].to_i
   y= a[1].to_i
   @origin = Point.new(x,y)
-  @board.add_a_ship_to_fleet('small', @origin,'North')
+  begin
+    @board.add_a_ship_to_fleet('small', @origin,'North')
+  rescue RuntimeError => @an_error	
+  end
 end
 
 Then(/^position "(.*?)" is not empty$/) do |point|
@@ -27,7 +30,10 @@ When(/^I create a medium ship in position "(.*?)"$/) do |point|
   x= a[0].to_i
   y= a[1].to_i
   @origin = Point.new(x,y)
-  @board.add_a_ship_to_fleet('medium', @origin,'North')
+  begin  	
+    @board.add_a_ship_to_fleet('medium', @origin,'North')
+  rescue RuntimeError => @an_error
+  end
 end
 
 Then(/^position "(.*?)" and one more position are not empty$/) do |point|
@@ -45,7 +51,10 @@ When(/^I create a large ship in position "(.*?)"$/) do |point|
   x= a[0].to_i
   y= a[1].to_i
   @origin = Point.new(x,y)
-  @board.add_a_ship_to_fleet('large', @origin,'North')
+  begin
+    @board.add_a_ship_to_fleet('large', @origin,'North')
+  rescue RuntimeError => @an_error
+  end
 end
 
 Then(/^position "(.*?)" and two more positions are not empty$/) do |point|

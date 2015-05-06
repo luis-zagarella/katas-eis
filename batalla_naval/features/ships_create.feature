@@ -1,6 +1,5 @@
 Feature: Ships create
 
-@wip
   Background:
     Given a board with dimensions "5" x "5"
 
