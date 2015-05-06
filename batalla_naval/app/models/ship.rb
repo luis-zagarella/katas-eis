@@ -31,6 +31,7 @@ class Ship
 	@occupied_points = points
   end
 
+  # returns the size of a ship as an integer 
   def calculate_size(a_size)
 	res = 0
 	if(a_size == "small")
@@ -43,6 +44,7 @@ class Ship
 	res
   end
 
+  # build the parts of a ship
   def generate_occupied_points(a_size, a_origin, a_direction)
 	occupied  = [a_origin]	
 	neighbor = a_origin
@@ -53,28 +55,33 @@ class Ship
 	set_occupied_points(occupied)  
   end
 
+  # returns a_point belongs to self
   def a_point_belongs_to_ship(a_point)
 	occupied_points.any? { |point| point.is_equal(a_point) } 
   end
 
+  # make damage at a_point to self
   def get_hit(a_point)
 	occupied_points.reject! { |point| point.is_equal(a_point) }
 	set_state('damage') 
 	check_if_is_sink()
   end
 
+  # change the state if self is sink
   def check_if_is_sink
 	if(occupied_points.size == 0)
 		set_state('sink')
 	end
   end
 
+  # check if any part of the ship is out of board
   def check_is_out_of_board(a_width, a_long)
   	if(occupied_points.any? { |point| !point.is_in_range(a_width, a_long) })
 		raise 'Ship is out of board!'
 	end
   end
 
+  # check if any part of the ship collides with another ship
   def check_for_collisions(other_ships)
 	if(occupied_points.any? { |point| other_ships.any? { |ship| ship.a_point_belongs_to_ship(point) } })
   		raise 'Another ship is in this area!'

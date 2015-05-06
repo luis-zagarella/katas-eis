@@ -21,10 +21,12 @@ class Point
 	@x = a_x
   end
 
+  # returns self is equal to another_point
   def is_equal(another_point)
 	(self.x == another_point.x) && (self.y == another_point.y)	
   end
 
+  # returns the neighbor point at a_direction
   def next_at(a_direction)
 	res = Point.new(x, y)  
 	if(a_direction == "North")
@@ -39,6 +41,7 @@ class Point
 	res
   end
 
+  # returns self is in range
   def is_in_range(a_width, a_long)
 	(x >= 0) && (x < a_width) && (y >= 0) && (y < a_long)
   end
