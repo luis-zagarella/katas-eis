@@ -79,7 +79,7 @@ class Board
   end
 
   def remove_to_the_fleet(a_ship)
-
+  	ships.reject! { |ship| ship == a_ship }
   end
 
 end
