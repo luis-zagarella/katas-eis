@@ -1,6 +1,6 @@
 Feature: Shoot 
 
-@wip
+
   Background:
     Given a board with dimensions "5" x "5"
     And a medium ship in position: “3:3”

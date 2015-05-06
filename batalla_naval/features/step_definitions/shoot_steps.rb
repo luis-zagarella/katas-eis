@@ -8,7 +8,12 @@ Given(/^a medium ship in position: “(\d+):(\d+)”$/) do |x, y|
 end
 
 When(/^I shoot to position “(\d+):(\d+)”$/) do |x, y|
-  @response = @board.shoot(Point.new(x.to_i,y.to_i))
+  begin
+    @response = @board.shoot(Point.new(x.to_i,y.to_i))
+  rescue RuntimeError => @outOfBoard
+end
+	
+  
 end
 
 Then(/^I get hit$/) do
@@ -23,7 +28,7 @@ Then(/^I get sink$/) do
   expect(@response).to eq 'sink'
 end
 
-Then(/^it should raise error "(.*?)"$/) do |error|
-  pending # express 
+Then(/^it should raise error "(.*?)"$/) do |msj|
+   expect{ raise @outOfBoard }.to raise_error(msj)
 end
 
