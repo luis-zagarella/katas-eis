@@ -2,27 +2,24 @@ require_relative '../../app/models/board.rb'
 require_relative '../../app/models/point.rb'
 require_relative '../../app/models/ship.rb'
 
-Given(/^a large ship in position: “(\d+):(\d+)”$/) do |arg1, arg2|
-  pending # express the regexp above with the code you wish you had
+Given(/^a medium ship in position: “(\d+):(\d+)”$/) do |x, y|
+  @origin = Point.new(x.to_i,y.to_i)
+  @board.add_a_ship_to_fleet('medium', @origin,'North')
 end
 
-Given(/^I shoot to position “(\d+):(\d+)”$/) do |arg1, arg2|
-  pending # express the regexp above with the code you wish you had
+When(/^I shoot to position “(\d+):(\d+)”$/) do |x, y|
+  @response = @board.shoot(Point.new(x.to_i,y.to_i))
 end
 
 Then(/^I get hit$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(@response).to eq 'hit'
 end
 
 Then(/^I get water$/) do
-  pending # express the regexp above with the code you wish you had
-end
-
-Then(/^I shoot to position “(\d+):(\d+)”$/) do |arg1, arg2|
-  pending # express the regexp above with the code you wish you had
+  expect(@response).to eq 'water'
 end
 
 Then(/^I get sink$/) do
-  pending # express the regexp above with the code you wish you had
+  expect(@response).to eq 'sink'
 end
 

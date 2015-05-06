@@ -6,7 +6,7 @@ Given(/^a board with dimensions "(.*?)" x "(.*?)"$/) do |width, long|
   @board = Board.new width.to_i, long.to_i
 end
 
-Given(/^I create a small ship in position "(.*?)"$/) do |point|	
+When(/^I create a small ship in position "(.*?)"$/) do |point|	
   a = point.split(":")
   x= a[0].to_i
   y= a[1].to_i
@@ -22,7 +22,7 @@ Then(/^position "(.*?)" is not empty$/) do |point|
    expect(@board.is_empty(@my_point)).to eq false
 end
 
-Given(/^I create a medium ship in position "(.*?)"$/) do |point|
+When(/^I create a medium ship in position "(.*?)"$/) do |point|
   a = point.split(":")
   x= a[0].to_i
   y= a[1].to_i
@@ -40,7 +40,7 @@ Then(/^position "(.*?)" and one more position are not empty$/) do |point|
    expect(@board.is_empty(@neighbor1)).to eq false
 end
 
-Given(/^I create a large ship in position "(.*?)"$/) do |point|
+When(/^I create a large ship in position "(.*?)"$/) do |point|
   a = point.split(":")
   x= a[0].to_i
   y= a[1].to_i
