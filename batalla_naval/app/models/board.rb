@@ -46,4 +46,24 @@ class Board
 	!ships.any? { |ship| ship.a_point_belongs_to_ship(a_point) }  
   end
 
+  def shoot(a_point)
+  	msj = 'shoot out of range'
+	if(a_point.is_in_range(width, long))
+		msj = make_shoot(a_point)
+	end
+	msj
+  end
+
+  def make_shoot(a_point)
+	msj = 'water'
+	if(!is_empty(a_point))
+		msj = make_damage(a_point)
+	end
+	msj
+  end
+ 
+  def make_damage(a_point)
+
+  end
+
 end

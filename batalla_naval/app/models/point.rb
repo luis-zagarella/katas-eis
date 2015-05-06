@@ -39,4 +39,8 @@ class Point
 	res
   end
 
+  def is_in_range(a_width, a_long)
+	(x >= 0) && (x < a_width) && (y >= 0) && (y < a_long)
+  end
+
 end

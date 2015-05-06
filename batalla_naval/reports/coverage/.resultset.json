@@ -2,7 +2,7 @@
   "RSpec": {
     "coverage": {
     },
-    "timestamp": 1430893324
+    "timestamp": 1430895549
   },
   "Cucumber Features": {
     "coverage": {
@@ -55,6 +55,26 @@
         0,
         null,
         null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        1,
+        0,
+        0,
+        0,
+        null,
+        0,
+        null,
+        null,
+        1,
+        null,
+        null,
+        null,
         null
       ],
       "/home/luis/batalla_naval/app/models/point.rb": [
@@ -96,6 +116,10 @@
         0,
         0,
         null,
+        0,
+        null,
+        null,
+        1,
         0,
         null,
         null,
@@ -155,6 +179,6 @@
         null
       ]
     },
-    "timestamp": 1430893326
+    "timestamp": 1430895551
   }
 }

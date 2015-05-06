@@ -133,5 +133,21 @@ describe 'Battleship' do
 
   end
 
+  describe 'Making shoots' do
+
+	before (:each) do
+    	  @board = Board.new 5,5
+	  @origin = Point.new 3,3
+          @miss = @origin.next_at('East')
+	  @neighbor = @origin.next_at('Norht')
+	  @board.add_a_ship_to_fleet('medium', @origin, 'North')
+	end
+        
+	it 'should make a shoot and miss' do
+	  msj = @board.shoot(@miss)
+	  expect(msj).to eq 'water'
+        end
+
+  end
 
 end
