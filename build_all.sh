@@ -11,4 +11,4 @@ cd tenis
 bundle exec rake
 cd ..
 cd batalla_naval
-bundle exec rake
+bundle exec rake 
