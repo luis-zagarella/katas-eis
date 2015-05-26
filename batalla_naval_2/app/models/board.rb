@@ -61,6 +61,10 @@ class Board
     msj = 'hit'
     ship = ship_at(a_point)
     ship.get_hit(a_point)
+    if(ship.state() == 'sink')
+      remove_to_the_fleet(ship)
+      msj = 'sink'
+    end
     msj 
   end
 
@@ -68,6 +72,11 @@ class Board
   def ship_at(a_point)
     index = ships.find_index { |ship| ship.a_point_belongs_to_ship(a_point) }
     ships[index]
+  end
+
+  # removes a_ship to the fleet
+  def remove_to_the_fleet(a_ship)
+    ships.reject! { |ship| ship == a_ship }
   end
 
 end

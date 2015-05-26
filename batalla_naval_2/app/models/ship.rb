@@ -73,6 +73,14 @@ class Ship
   def get_hit(a_point)
     occupied_points.reject! { |point| point.is_equal(a_point) }
     set_state('damage') 
+    check_if_is_sink_and_change_state
+  end
+
+  # change the state if self is sink
+  def check_if_is_sink_and_change_state
+    if(occupied_points.size == 0)
+		set_state('sink')
+    end
   end
  
 end

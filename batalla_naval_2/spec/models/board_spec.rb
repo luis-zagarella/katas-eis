@@ -70,6 +70,7 @@ describe 'Board' do
   
     before (:each) do
       @miss = @origin.next_at('East')
+      @neighbor = Point.new 3,4
 	  @board.add_a_ship_to_fleet('large', @origin, 'North')
     end
         
@@ -85,6 +86,14 @@ describe 'Board' do
       expect(msj).to eq 'hit'
       expect(@board.ships[0].occupied_points.size).to eq 1
       expect(@board.ships[0].state).to eq 'damage'
+    end
+
+    it 'should make a shoot and sink' do
+      msj1 = @board.shoot(@origin)
+      msj2 = @board.shoot(@neighbor)
+      expect(msj1).to eq 'hit'
+      expect(msj2).to eq 'sink'
+      expect(@board.ships.size).to eq 0
     end
 
   end
