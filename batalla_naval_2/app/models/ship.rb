@@ -55,4 +55,11 @@ class Ship
     occupied_points.any? { |point| point.is_equal(a_point) } 
   end
 
+  # check if any part of the ship is out of board
+  def check_is_out_of_board(a_width, a_long)
+    if(occupied_points.any? { |point| !point.is_in_range(a_width, a_long) })
+      raise 'Ship is out of board!'
+    end
+  end
+ 
 end

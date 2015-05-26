@@ -24,6 +24,7 @@ describe 'Board' do
 	
 	before (:each) do
       @origin = Point.new 3,3
+      @out_point = Point.new 5,5
     end	 
 	
     it 'should add a small ship in origin' do
@@ -38,7 +39,11 @@ describe 'Board' do
       expect(@board.is_empty(@origin)).to eq false
       expect(@board.is_empty(@origin.next_at('Norht'))).to eq false
     end
-  
+    
+    it 'should raise an error because ship is out of board' do
+      expect { @board.add_a_ship_to_fleet('small', @out_point, 'North') }.to raise_error("Ship is out of board!")
+    end
+
   end
 
 end

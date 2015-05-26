@@ -22,9 +22,10 @@ class Board
     @ships = fleet
   end
   
-  # adding a new ship to the fleet 
+  # adding a new ship to the fleet checking out of board problems 
   def add_a_ship_to_fleet(a_size, a_origin, a_direction)
     new_ship = Ship.new(a_size, a_origin, a_direction)
+    new_ship.check_is_out_of_board(width, long)
     add_ship(new_ship)
   end
 
