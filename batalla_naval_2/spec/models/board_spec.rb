@@ -80,6 +80,13 @@ describe 'Board' do
       expect(@board.ships[0].state).to eq 'without damage'
     end
 
+    it 'should make a shoot and hit' do
+      msj = @board.shoot(@origin)
+      expect(msj).to eq 'hit'
+      expect(@board.ships[0].occupied_points.size).to eq 1
+      expect(@board.ships[0].state).to eq 'damage'
+    end
+
   end
 
 end

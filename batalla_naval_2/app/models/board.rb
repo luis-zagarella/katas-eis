@@ -43,8 +43,31 @@ class Board
 
   # make a shoot
   def shoot(a_point)
-    msj = 'water'
+    msj = ' '
+    msj = make_shoot(a_point)
     msj
+  end
+
+  def make_shoot(a_point)
+    msj = 'water'
+    if(!is_empty(a_point))
+      msj = make_damage(a_point)
+    end
+    msj
+  end
+
+  # make damage to the ship that is at a_point 
+  def make_damage(a_point)
+    msj = 'hit'
+    ship = ship_at(a_point)
+    ship.get_hit(a_point)
+    msj 
+  end
+
+  # returns the ship that is at a_point
+  def ship_at(a_point)
+    index = ships.find_index { |ship| ship.a_point_belongs_to_ship(a_point) }
+    ships[index]
   end
 
 end

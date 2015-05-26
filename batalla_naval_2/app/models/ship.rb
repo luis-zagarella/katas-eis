@@ -68,5 +68,11 @@ class Ship
       raise 'Another ship is in this area!'
     end
   end
+
+  # make damage at a_point to self
+  def get_hit(a_point)
+    occupied_points.reject! { |point| point.is_equal(a_point) }
+    set_state('damage') 
+  end
  
 end
