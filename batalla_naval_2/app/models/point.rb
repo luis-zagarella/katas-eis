@@ -26,4 +26,19 @@ class Point
     (x == another_point.x) && (y == another_point.y)	
   end
 
+  # returs the self's neighbor at a_direction
+  def next_at(a_direction)
+    res = Point.new(x, y)  
+    if(a_direction == "North")
+      res.set_y(res.y() + 1)
+    elsif(a_direction == "South")
+      res.set_y(res.y() - 1)
+    elsif(a_direction == "East")
+      res.set_x(res.x() + 1)
+    elsif(a_direction == "West")
+      res.set_x(res.x() - 1)
+    end
+    res
+  end
+
 end

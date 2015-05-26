@@ -17,4 +17,28 @@ describe 'Point' do
     expect(@point.is_equal(the_same)).to eq true
   end
 
+  it 'should return its neighbor at north' do
+    neighbor = @point.next_at('North')
+    expect(neighbor.x).to eq 3
+    expect(neighbor.y).to eq 4
+  end
+	
+  it 'should return its neighbor at south' do
+    neighbor = @point.next_at('South')
+    expect(neighbor.x).to eq 3
+    expect(neighbor.y).to eq 2
+  end
+  
+  it 'should return its neighbor at east' do
+    neighbor = @point.next_at('East')
+    expect(neighbor.x).to eq 4
+    expect(neighbor.y).to eq 3
+  end
+
+  it 'should return its neighbor at west' do
+    neighbor = @point.next_at('West')
+    expect(neighbor.x).to eq 2
+    expect(neighbor.y).to eq 3
+  end
+  
 end
