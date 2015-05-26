@@ -11,3 +11,15 @@ end
 Then(/^position "(.*?)" is not empty$/) do |arg1|
   pending # express the regexp above with the code you wish you had
 end
+
+When(/^I create a large ship in position "(.*?)"$/) do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
+Then(/^position "(.*?)" and one more position are not empty$/) do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
+
+Then(/^it should raise error "(.*?)"$/) do |arg1|
+  pending # express the regexp above with the code you wish you had
+end
