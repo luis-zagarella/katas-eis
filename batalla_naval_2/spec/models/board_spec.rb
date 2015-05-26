@@ -31,6 +31,13 @@ describe 'Board' do
       expect(@board.ships.size).to eq 1
       expect(@board.is_empty(@origin)).to eq false
     end
+
+    it 'should add a large ship in origin' do
+      @board.add_a_ship_to_fleet('large', @origin, 'North')
+      expect(@board.ships.size).to eq 1
+      expect(@board.is_empty(@origin)).to eq false
+      expect(@board.is_empty(@origin.next_at('Norht'))).to eq false
+    end
   
   end
 
