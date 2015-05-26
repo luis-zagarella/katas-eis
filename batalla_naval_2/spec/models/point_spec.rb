@@ -45,4 +45,8 @@ describe 'Point' do
     expect(@point.is_in_range(5,5)). to eq true
   end
 
+  it 'should return that self is not in range' do
+  	expect(@point.is_in_range(1,1)). to eq false
+  end
+
 end
