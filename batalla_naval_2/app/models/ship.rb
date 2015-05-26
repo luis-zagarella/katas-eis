@@ -32,13 +32,22 @@ class Ship
   end
 
   def calculate_size(a_size)
-	1
+	res = 1
+    if(a_size == "large")
+      res = 2
+    end
+    res
   end
 
   # build the parts of a ship
   def generate_occupied_points(a_size, a_origin, a_direction)
 	occupied  = [a_origin]	
-	set_occupied_points(occupied)  
+	neighbor = a_origin
+    (a_size - 1).times do 
+      neighbor = neighbor.next_at(a_direction)
+      occupied = occupied + [neighbor]
+    end	
+    set_occupied_points(occupied)  
   end
 
 end
