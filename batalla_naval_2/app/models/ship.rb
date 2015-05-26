@@ -50,4 +50,9 @@ class Ship
     set_occupied_points(occupied)  
   end
 
+  # returns a_point belongs to self
+  def a_point_belongs_to_ship(a_point)
+    occupied_points.any? { |point| point.is_equal(a_point) } 
+  end
+
 end
