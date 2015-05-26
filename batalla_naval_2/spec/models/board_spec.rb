@@ -5,6 +5,7 @@ describe 'Board' do
 
   before (:each) do
     @board = Board.new 5,5
+    @origin = Point.new 3,3
   end
 
   describe 'Board initialize' do
@@ -23,7 +24,6 @@ describe 'Board' do
   describe 'Adding ships to fleet' do
 	
 	before (:each) do
-      @origin = Point.new 3,3
       @out_point = Point.new 5,5
       @edge = Point.new 4,4
       @south_origin = Point.new 3,2
@@ -63,6 +63,22 @@ describe 'Board' do
       @board.add_a_ship_to_fleet('small', @origin, 'North')
       expect { @board.add_a_ship_to_fleet('large', @south_origin, 'North') }.to raise_error("Another ship is in this area!")
 	end
+
+  end
+
+  describe 'Making shoots' do
+  
+    before (:each) do
+      @miss = @origin.next_at('East')
+	  @board.add_a_ship_to_fleet('large', @origin, 'North')
+    end
+        
+    it 'should make a shoot and miss' do
+      msj = @board.shoot(@miss)
+      expect(msj).to eq 'water'
+      expect(@board.ships[0].occupied_points.size).to eq 2
+      expect(@board.ships[0].state).to eq 'without damage'
+    end
 
   end
 

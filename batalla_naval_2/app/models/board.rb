@@ -41,4 +41,10 @@ class Board
     !ships.any? { |ship| ship.a_point_belongs_to_ship(a_point) }  
   end
 
+  # make a shoot
+  def shoot(a_point)
+    msj = 'water'
+    msj
+  end
+
 end
