@@ -1,7 +1,7 @@
 require_relative '../../app/models/board.rb'
 require_relative '../spec_helper.rb'
 
-describe 'Battleship' do
+describe 'Board' do
 
   describe 'Board initialize' do
 	
