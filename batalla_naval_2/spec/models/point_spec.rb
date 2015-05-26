@@ -12,9 +12,9 @@ describe 'Point' do
     expect(@point.is_equal(the_same)).to eq true
   end
 
-  it 'should return that are equals' do
-    the_same = Point.new 3,3	  
-    expect(@point.is_equal(the_same)).to eq true
+  it 'should return that are not equals' do
+    another = Point.new 3,4	  
+    expect(@point.is_equal(another)).to eq false	
   end
 
   it 'should return its neighbor at north' do
@@ -41,4 +41,8 @@ describe 'Point' do
     expect(neighbor.y).to eq 3
   end
   
+  it 'should return that self is in range' do
+    expect(@point.is_in_range(5,5)). to eq true
+  end
+
 end
