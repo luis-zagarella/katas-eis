@@ -42,6 +42,15 @@ describe 'Board' do
       expect(@board.is_empty(@origin.next_at('Norht'))).to eq false
     end
     
+    it 'should add a large ship in origin and a small ship in edge' do
+      @board.add_a_ship_to_fleet('large', @origin, 'North')
+      @board.add_a_ship_to_fleet('small', @edge, 'North')
+      expect(@board.ships.size).to eq 2
+      expect(@board.is_empty(@origin)).to eq false
+      expect(@board.is_empty(@origin.next_at('Norht'))).to eq false
+      expect(@board.is_empty(@edge)).to eq false
+    end
+
     it 'should raise an error because ship is out of board - case small ship' do
       expect { @board.add_a_ship_to_fleet('small', @out_point, 'North') }.to raise_error("Ship is out of board!")
     end

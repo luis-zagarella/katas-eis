@@ -33,11 +33,7 @@ class Board
   # add a ship to ships 
   def add_ship(a_ship)
     res = [a_ship]
-    if(ships.size > 0)
-      ships = ships + res
-    else
-      set_ships(res)
-    end
+    set_ships(ships + res)
   end
 
   # returns true if a_point is empty (there isn't ships there)
