@@ -12,4 +12,9 @@ describe 'Point' do
     expect(@point.is_equal(the_same)).to eq true
   end
 
+  it 'should return that are equals' do
+    the_same = Point.new 3,3	  
+    expect(@point.is_equal(the_same)).to eq true
+  end
+
 end
