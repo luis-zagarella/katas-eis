@@ -26,6 +26,7 @@ describe 'Board' do
       @origin = Point.new 3,3
       @out_point = Point.new 5,5
       @edge = Point.new 4,4
+      @south_origin = Point.new 3,2
     end	 
 	
     it 'should add a small ship in origin' do
@@ -48,6 +49,11 @@ describe 'Board' do
     it 'should raise an error because ship is out of board - case large ship' do
       expect { @board.add_a_ship_to_fleet('large', @edge, 'North') }.to raise_error("Ship is out of board!")
     end
+
+    it 'should raise an error because another ship is in the area' do
+      @board.add_a_ship_to_fleet('small', @origin, 'North')
+      expect { @board.add_a_ship_to_fleet('large', @south_origin, 'North') }.to raise_error("Another ship is in this area!")
+	end
 
   end
 

@@ -26,6 +26,7 @@ class Board
   def add_a_ship_to_fleet(a_size, a_origin, a_direction)
     new_ship = Ship.new(a_size, a_origin, a_direction)
     new_ship.check_is_out_of_board(width, long)
+    new_ship.check_for_collisions(ships)
     add_ship(new_ship)
   end
 

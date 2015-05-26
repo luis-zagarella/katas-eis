@@ -61,5 +61,12 @@ class Ship
       raise 'Ship is out of board!'
     end
   end
+
+  # check if any part of the ship collides with another ship
+  def check_for_collisions(other_ships)
+    if(occupied_points.any? { |point| other_ships.any? { |ship| ship.a_point_belongs_to_ship(point) } })
+      raise 'Another ship is in this area!'
+    end
+  end
  
 end
