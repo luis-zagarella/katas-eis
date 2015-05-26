@@ -41,10 +41,14 @@ class Board
     !ships.any? { |ship| ship.a_point_belongs_to_ship(a_point) }  
   end
 
-  # make a shoot
+  # make a shoot ckecking for out of board problems
   def shoot(a_point)
     msj = ' '
-    msj = make_shoot(a_point)
+    if(a_point.is_in_range(width, long))
+      msj = make_shoot(a_point)
+    else
+      raise 'Shoot out of board!'
+    end
     msj
   end
 

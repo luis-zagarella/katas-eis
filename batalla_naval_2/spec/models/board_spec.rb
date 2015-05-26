@@ -96,6 +96,10 @@ describe 'Board' do
       expect(@board.ships.size).to eq 0
     end
 
+    it 'should make a shoot out of board and raise an error' do
+      expect { @board.shoot(Point.new 5,5) }.to raise_error("Shoot out of board!")
+    end
+
   end
 
 end
