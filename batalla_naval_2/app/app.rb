@@ -1,4 +1,4 @@
-require_relative '../app/models/board.rb'
+require_relative 'models/board'
 
 module Battleship
   class App < Padrino::Application
