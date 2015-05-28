@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+	<title>Battleship - Start</title>
+    <meta charset="utf-8">
+  </head>
+
+  <!-- BOOTSTRAP -->
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	
+  <body>
+	<h1>Battleship</h1><br/>
+    <form method="POST" action="create-board">
+      <%= csrf_token_field %>
+      Set dimensions of the board:<br/><br/>
+      width<input type="text" name="width"/>  
+      heigth<input type="text" name="heigth"/>
+      <button type="submit" class="btn btn-default" id="create-board-button">Create</button>
+	  </form>
+  </body>
+</html>
