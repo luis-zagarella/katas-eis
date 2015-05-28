@@ -1,5 +1,5 @@
 require File.expand_path(File.dirname(__FILE__) + "/../../config/boot")
-require_relative '../../app/app.rb'
+require_relative '../../app/app'
 
 require 'capybara/cucumber'
 require 'rspec/expectations'
