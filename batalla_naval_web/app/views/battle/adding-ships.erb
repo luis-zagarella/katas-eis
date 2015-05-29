@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <title>Battleship - Adding ships</title>
+    <meta charset="utf-8">
+  </head>
+
+  <!-- BOOTSTRAP -->
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+  <!-- Optional theme -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+  <!-- Latest compiled and minified JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+	
+  <body>
+	  <h1>Add ships to the fleet</h1><br/><br/>
+
+    <form method="POST" action="add-small-ship">
+      <%= csrf_token_field %>
+      <p>Add a small ship: </p>
+      <p>Position:</p>
+      X:<input type="number" name="x_small"/><br/>
+      Y:<input type="number" name="y_small"/><br/>
+      <button type="submit" class="btn btn-default" id="create_small">Create</button>
+    </form>
+    <br/>
+    <form method="POST" action="add-large-ship">
+      <%= csrf_token_field %>
+      <p>Add a large ship: </p>
+      <p>Position:</p>
+      X:<input type="number" name="x_large"/><br/>
+      Y:<input type="number" name="y_large"/><br/>
+      <button type="submit" class="btn btn-default" id="create_large">Create</button>
+    </form>
+    <br/>
+    <form method="POST" action="check-is-empty">
+      <%= csrf_token_field %>
+      <p>Check is empty:</p>
+      X:<input type="number" name="x_empty"/>
+      Y:<input type="number" name="y_empty"/><br/>
+      <button type="submit" class="btn btn-default" id="check_empty">Check</button>
+    </form>
+    <div class="alert alert-success" role="alert"><%= @mje%><</div>
+    <h>Start game</h2>
+    <form method="POST" action="start-game">
+      <%= csrf_token_field %>
+      <button type="submit" class="btn btn-default" id="start_game">Start</button>
+    </form>
+  </body>
+</html>

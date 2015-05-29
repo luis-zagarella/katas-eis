@@ -9,7 +9,7 @@ Feature: Ships create
 
   Scenario: Create a large ship in a valid location
     When I create a large ship in position "2:2"
-    Then position "2:2" and one more position are not empty
+    Then position "2:2" is not empty
     And position "2:3" is not empty
  
   Scenario: Create a ship in a invalid location
