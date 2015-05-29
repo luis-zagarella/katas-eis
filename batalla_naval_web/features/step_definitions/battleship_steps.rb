@@ -32,5 +32,6 @@ When(/^I create a large ship in position "(.*?)"$/) do |point|
 end
 
 Then(/^it should raise error "(.*?)"$/) do |msj|
-  #pending 
+  page.should have_content(msj)
 end
+

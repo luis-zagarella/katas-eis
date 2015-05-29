@@ -14,11 +14,11 @@ module Battleship
     post 'create-board' do
       @board = Board.new params[:width].to_i, params[:heigth].to_i
       session[:board] = @board
-      render 'battle/adding-ships' 
+      render 'battle/game' 
     end
 
     post 'add-small-ship' do
-
+      @board = session[:board]
       point = Point.new(params[:x_small].to_i, params[:y_small].to_i)
       x = params[:x_small].to_s
       y = params[:y_small].to_s
@@ -28,10 +28,12 @@ module Battleship
       rescue Exception => e
         @mje = e.message
       end  
-      render 'battle/adding-ships'
+      session[:board] = @board
+      render 'battle/game'
     end
 
     post 'add-large-ship' do
+      @board = session[:board]
       point = Point.new(params[:x_large].to_i, params[:y_large].to_i)
       x = params[:x_large].to_s
       y = params[:y_large].to_s 
@@ -41,7 +43,8 @@ module Battleship
       rescue Exception => e
         @mje = e.message
       end
-      render 'battle/adding-ships'
+      session[:board] = @board
+      render 'battle/game'
     end
 
     post 'check-is-empty' do 
@@ -49,8 +52,20 @@ module Battleship
       x = params[:x_empty].to_s
       y = params[:y_empty].to_s 
       @mje = 'Position ' + x + ':' + y + ' empty: ' + session[:board].is_empty(point).to_s + '.'    
-      render 'battle/adding-ships'
-    end
-  end  
+      render 'battle/game'
+    end 
+
+    post 'shoot' do
+      @board = session[:board]
+      point = Point.new(params[:x_shoot].to_i, params[:y_shoot].to_i)
+      begin
+        @mje = session[:board].shoot(point)
+      rescue Exception => e
+        @mje = e.message
+      end
+      session[:board] = @board
+      render 'battle/game'
+    end 
+  end
 end
 
