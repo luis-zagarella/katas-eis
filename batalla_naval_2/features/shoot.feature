@@ -17,7 +17,7 @@ Feature: Shoot
     Then I get hit
     And I shoot to position “3:3”
     Then I get sink
-
+  
   Scenario: Shoot outside of board
     When I shoot to position “5:5”
     Then it should raise error "Shoot out of board!"

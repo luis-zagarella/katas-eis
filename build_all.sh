@@ -10,6 +10,8 @@ cd ..
 cd tenis
 bundle exec rake
 cd ..
+cd batalla_naval_2
+bundle exec rake
+cd ..
 cd batalla_naval_web
 bundle exec rake
-
