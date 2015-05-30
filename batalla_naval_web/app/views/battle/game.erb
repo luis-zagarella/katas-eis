@@ -1,52 +1,72 @@
 <!DOCTYPE html>
 <html lang="en-US">
-  <head>
-    <title>Battleship - Game</title>
-    <meta charset="utf-8">
-  </head>
+    <head>
+        <title>Battleship - Game</title>
+        <meta charset="utf-8">
+    </head>
 
-  <!-- BOOTSTRAP -->
-  <!-- Latest compiled and minified CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
-  <!-- Optional theme -->
-  <link rel="stylesheet" href="https://<maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
-  <!-- Latest compiled and minified JavaScript -->
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <!-- BOOTSTRAP -->
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://<maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 	
-  <body>
-	  <h1>Battleship</h1>
-    <h3>Add ships to the fleet</h3>
-    <form method="POST" action="add-small-ship">
-      <%= csrf_token_field %>
-      <p>Add a small ship: </p>
-      <p>Position:</p>
-      X:<input type="number" name="x_small"/><br/>
-      Y:<input type="number" name="y_small"/><br/>
-      <button type="submit" class="btn btn-default" id="create_small">Create</button>
-    </form>
-    <form method="POST" action="add-large-ship">
-      <%= csrf_token_field %>
-      <p>Add a large ship: </p>
-      <p>Position:</p>
-      X:<input type="number" name="x_large"/><br/>
-      Y:<input type="number" name="y_large"/><br/>
-      <button type="submit" class="btn btn-default" id="create_large">Create</button>
-    </form>
-    <form method="POST" action="check-is-empty">
-      <%= csrf_token_field %>
-      <p>Check is empty:</p>
-      X:<input type="number" name="x_empty"/>
-      Y:<input type="number" name="y_empty"/><br/>
-      <button type="submit" class="btn btn-default" id="check_empty">Check</button>
-    </form>
-    <h3>Play game</h3>
-    <form method="POST" action="shoot">
-      <%= csrf_token_field %>
-      <p>Shoot position: </p>
-      X:<input type="number" name="x_shoot"/><br/>
-      Y:<input type="number" name="y_shoot"/><br/>
-      <button type="submit" class="btn btn-default" id="shoot_button">Shoot!</button><br/>
-    </form>
-    <div class="alert alert-success" role="alert"><%= @mje%></div> 
-  </body>
+    <body>
+        <div class="container">    
+            <h1 class="text-center">Battleship</h1>
+        </div>
+        </br></br>
+        <div class="container">    
+            <h3 class="text-center">Add ships to the fleet</h3>
+        </div>
+        </br></br>
+        <div class="row">
+            <div class="col-md-4">
+                <form method="POST" action="add-small-ship">
+                    <%= csrf_token_field %>
+                    <p>Add a small ship: </p>
+                    <p>Position:</p>
+                    X:<input type="number" name="x_small"/>
+                    Y:<input type="number" name="y_small"/>
+                    <button type="submit" class="btn btn-default" id="create_small">Create</button>
+                </form>
+            </div>
+            <div class="col-md-4">
+                <form method="POST" action="add-large-ship">
+                    <%= csrf_token_field %>
+                    <p>Add a large ship: </p>
+                    <p>Position:</p>
+                    X:<input type="number" name="x_large"/>
+                    Y:<input type="number" name="y_large"/>
+                    <button type="submit" class="btn btn-default" id="create_large">Create</button>
+                </form>
+            </div>
+            <div class="col-md-4">
+                <form method="POST" action="check-is-empty">
+                    <%= csrf_token_field %>
+                    <p>Check is empty:</p>
+                    <p>Position:</p>
+                    X:<input type="number" name="x_empty"/>
+                    Y:<input type="number" name="y_empty"/>
+                    <button type="submit" class="btn btn-default" id="check_empty">Check</button>
+                </form>
+            </div>
+        </div>
+        </br></br></br></br>
+        <div class="row">
+            <div class="col-md-4">
+                <h2>Play game</h2>
+                <form method="POST" action="shoot">
+                    <%= csrf_token_field %>
+                    <p>Shoot position: </p>
+                    X:<input type="number" name="x_shoot"/>
+                    Y:<input type="number" name="y_shoot"/>
+                    <button type="submit" class="btn btn-default" id="shoot_button">Shoot!</button><br/>
+                </form>
+            </div>
+        </div>
+        <div class="alert alert-success" role="alert"><%= @mje%></div> 
+    </body>
 </html>
